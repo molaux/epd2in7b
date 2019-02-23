@@ -34,35 +34,34 @@ const height = epd.width
 let epdp = epd.init({fastLut: false})
 
 const refreshDisplay = message =>
-
   epdp = epdp
     // init is required since we set it sleeping at the end of this chain
     .then(() => epd.init({fastLut: false}))
-	  .then(() => img.then(img => {
-        // display a black rectangle
-        img.filledRectangle(
-          Math.round(width / 8), Math.round(height / 8),
-          Math.round(7 * width / 8), Math.round(7 * height / 8),
-          epd.colors.black)
+    .then(() => img.then(img => {
+      // display a black rectangle
+      img.filledRectangle(
+        Math.round(width / 8), Math.round(height / 8),
+        Math.round(7 * width / 8), Math.round(7 * height / 8),
+        epd.colors.black)
 
-				// display a red rectangle
-				img.filledRectangle(
-					Math.round(width / 4), Math.round(height / 4),
-					Math.round(3 * width / 4), Math.round(3 * height / 4),
-					epd.colors.red)
+      // display a red rectangle
+      img.filledRectangle(
+        Math.round(width / 4), Math.round(height / 4),
+        Math.round(3 * width / 4), Math.round(3 * height / 4),
+        epd.colors.red)
 
-				// Retrieve bounding box of displayed string
-				let [xll, yll, xlr, ylr, xur, yur, xul, yul] = img.stringFTBBox(epd.colors.white, font, fontSize, 0, 0, 0, message)
+      // Retrieve bounding box of displayed string
+      let [xll, yll, xlr, ylr, xur, yur, xul, yul] = img.stringFTBBox(epd.colors.white, font, fontSize, 0, 0, 0, message)
 
-				// Center the message
-				img.stringFT(epd.colors.white, font, fontSize, 0,
-					Math.round(width / 2 - (xur - xul) / 2),
-					Math.round(height / 2 + (yll - yul) / 2),
-					message)
+      // Center the message
+      img.stringFT(epd.colors.white, font, fontSize, 0,
+        Math.round(width / 2 - (xur - xul) / 2),
+        Math.round(height / 2 + (yll - yul) / 2),
+        message)
 
-				return epd.displayImageBuffer(img)
-			}))
-	  .then(() => epd.sleep())
+      return epd.displayImageBuffer(img)
+    }))
+    .then(() => epd.sleep())
 
 refreshDisplay("Hello world !")
 
@@ -75,18 +74,18 @@ epd.buttons.handler.then(handler =>
         buttonLabel = 'first button'
         break
       case epd.buttons.button2:
-				buttonLabel = 'second button'
+        buttonLabel = 'second button'
         break
       case epd.buttons.button3:
-				buttonLabel = 'third button'
+        buttonLabel = 'third button'
         break
       case epd.buttons.button4:
-				buttonLabel = 'fourth button'
+        buttonLabel = 'fourth button'
         break
       default:
-				buttonLabel = 'an unknown button'
+        buttonLabel = 'an unknown button'
     }
-		refreshDisplay(`You pressed \n${buttonLabel}`)
+    refreshDisplay(`You pressed \n${buttonLabel}`)
   })
 )
 
