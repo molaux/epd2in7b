@@ -46,7 +46,7 @@ void EpdIf::DelayMs(unsigned int delaytime) {
     delay(delaytime);
 }
 
-void EpdIf::SpiTransfer(unsigned char data) {
+void EpdIf::SpiTransfer(UBYTE data) {
     wiringPiSPIDataRW(0, &data, 1);
 }
 
@@ -56,9 +56,9 @@ int EpdIf::IfInit(void) {
     }
     pinMode(RST_PIN, OUTPUT);
     pinMode(DC_PIN, OUTPUT);
-    pinMode(BUSY_PIN, INPUT); 
-    wiringPiSPISetup(0, 2000000);
-	
+    pinMode(CS_PIN, OUTPUT);
+    pinMode(BUSY_PIN, INPUT);
+    // wiringPiSPISetup(0, 2000000);
+	  wiringPiSPISetupMode(0, 32000000, 0);
     return 0;
 }
-

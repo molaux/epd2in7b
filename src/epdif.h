@@ -27,7 +27,7 @@
 
 #ifndef EPDIF_H
 #define EPDIF_H
-
+#include <node.h>
 // Pin definition
 #define RST_PIN         17
 #define DC_PIN          25
@@ -38,16 +38,20 @@
 #define LOW             0
 #define HIGH            1
 
+#define UBYTE   uint8_t
+#define UWORD   uint16_t
+#define UDOUBLE uint32_t
+
 class EpdIf {
 public:
     EpdIf(void);
     ~EpdIf(void);
 
     static int  IfInit(void);
-    static void DigitalWrite(int pin, int value); 
+    static void DigitalWrite(int pin, int value);
     static int  DigitalRead(int pin);
     static void DelayMs(unsigned int delaytime);
-    static void SpiTransfer(unsigned char data);
+    static void SpiTransfer(UBYTE data);
 
 };
 #endif

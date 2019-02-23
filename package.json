@@ -1,15 +1,11 @@
 {
-  "name": "epd7x5",
+  "name": "epd2in7b",
   "version": "1.1.4",
-  "description": "node module for the 7.5 inch waveshare epaper display",
+  "description": "node module for the 2.7 inch waveshare epaper display",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "install": "node-gyp rebuild"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/williwasser/epd7x5.git"
   },
   "keywords": [
     "epaper",
@@ -19,11 +15,9 @@
   "author": "Willi Wasser",
   "license": "ISC",
   "gypfile": true,
-  "bugs": {
-    "url": "https://github.com/williwasser/epd7x5/issues"
-  },
-  "homepage": "https://github.com/williwasser/epd7x5#readme",
   "dependencies": {
-    "node-gd": "^1.5.4"
+    "nan": "^2.12.1",
+    "node-gd": "^1.5.4",
+    "rpi-gpio-buttons": "^1.1.0"
   }
 }
