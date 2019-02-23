@@ -1,6 +1,6 @@
 {
   "name": "epd2in7b",
-  "version": "1.1.4",
+  "version": "1.0",
   "description": "node module for the 2.7 inch waveshare epaper display",
   "main": "index.js",
   "scripts": {
