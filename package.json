@@ -12,7 +12,7 @@
     "epd",
     "waveshare"
   ],
-  "author": "Willi Wasser",
+  "author": "Marc-Olivier Laux",
   "license": "ISC",
   "gypfile": true,
   "dependencies": {
